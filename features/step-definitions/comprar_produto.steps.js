@@ -1,6 +1,6 @@
 import { Given, When, Then, After } from "@wdio/cucumber-framework"
 import HomePage from "../../pages/products.page"
-import ProductPage from "../../pages/product_details.page"
+import ProductDetailsPage from "../../pages/product_details.page"
 import CartPage from "../../pages/cart.page"
 
 After(async () => {
@@ -19,21 +19,21 @@ When("seleciono o produto na posicao {string}, efetuando {string}", async (index
 })
 
 Then("verifico o {string} e o {string}", async (produto, preco) => {
-    await expect(ProductPage.tituloProduto).toHaveText(produto)
-    await expect(ProductPage.precoProduto).toHaveText(preco)
+    await expect(ProductDetailsPage.tituloProduto).toHaveText(produto)
+    await expect(ProductDetailsPage.precoProduto).toHaveText(preco)
 })
 
 When("adiciono o produto no carrinho", async () => {
-    await ProductPage.arrastaParaCima(1)
-    await ProductPage.botaoAdicionarNoCarrinho.click()
+    await ProductDetailsPage.arrastaParaCima(1)
+    await ProductDetailsPage.botaoAdicionarNoCarrinho.click()
 })
 
 Then("exibe o numero 1 no icone do carrinho", async () => {
-    await expect(ProductPage.iconeCarrinho).toHaveText('1')
+    await expect(ProductDetailsPage.iconeCarrinho).toHaveText('1')
 })
 
 When("clico no carrinho", async () => {
-    await ProductPage.iconeCarrinho.click()
+    await ProductDetailsPage.iconeCarrinho.click()
 })
 
 Then("verifico o {string} e o {string} no carrinho", async (produto, preco) => {

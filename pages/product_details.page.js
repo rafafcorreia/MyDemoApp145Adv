@@ -1,6 +1,6 @@
 const BasePage = require('./base.page')
 
-class ProductPage extends BasePage{
+class ProductDetailsPage extends BasePage{
 
     get tituloProduto() {
         return $('id=com.saucelabs.mydemoapp.android:id/productTV')
@@ -19,4 +19,4 @@ class ProductPage extends BasePage{
     }
 }
 
-module.exports = new ProductPage()
+module.exports = new ProductDetailsPage()
