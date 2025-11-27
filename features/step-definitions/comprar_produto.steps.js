@@ -4,8 +4,8 @@ import ProductDetailsPage from "../../pages/product_details.page"
 import CartPage from "../../pages/cart.page"
 
 After(async () => {
-    await driver.reloadSession(); 
-    await driver.pause(1000); 
+    await driver.terminateApp('com.saucelabs.mydemoapp.android');
+    await driver.activateApp('com.saucelabs.mydemoapp.android');
 });
 
 Given("que estou na tela de Produtos", async () => {
